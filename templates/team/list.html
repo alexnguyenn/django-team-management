@@ -17,8 +17,7 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
                             <h5 class="card-title">
-                                {{ member.first_name }} {{ member.last_name }}
-                                {% if member.is_admin %}<span class="badge rounded-pill bg-secondary">admin</span>{% endif %}
+                                {{ member.name }} {% if member.is_admin %}<span class="badge rounded-pill bg-secondary">admin</span>{% endif %}
                             </h5>
                             <a href="{% url 'team:edit' member.id %}" class="btn btn-light btn-sm" aria-label="Edit">✏️</a>
                         </div>

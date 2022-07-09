@@ -6,7 +6,7 @@
         <form method="post">
             {% csrf_token %}
             <p class="text-muted mb-0 mt-2">
-                Are you sure you want to delete member {{ member.first_name }} {{ member.last_name }}?
+                Are you sure you want to delete member {{ member.name }}?
             </p>
             {{ form }}
             <div class="d-flex justify-content-between flex-row-reverse">

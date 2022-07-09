@@ -15,5 +15,8 @@ class Member(models.Model):
     def is_admin(self):
         return self.role == self.Role.ADMIN
 
-    def __str__(self):
+    def name(self):
         return f"{self.first_name} {self.last_name}"
+
+    def __str__(self):
+        return self.name()

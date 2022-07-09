@@ -6,7 +6,7 @@
             <h3>{% if form.instance.id %}Edit Member{% else %}New member{% endif %}</h3>
             <p class="text-muted">
                 {% if form.instance.id %}
-                    You are editing member {{ form.instance.first_name }} {{ form.instance.last_name }}
+                    You are editing member {{ form.instance.name }}
                 {% else %}
                     You are creating a new member
                 {% endif %}
