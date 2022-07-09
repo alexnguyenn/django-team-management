@@ -3,7 +3,7 @@ from django.views.generic import TemplateView
 from team.models import Member
 
 
-class ListView(TemplateView):
+class MemberListView(TemplateView):
     template_name = "team/list.html"
 
     def get_context_data(self, **kwargs):
