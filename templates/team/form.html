@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row py-2">
+        <div class="col-8">
+            <h3>{% if form.instance.id %}Edit Member{% else %}New member{% endif %}</h3>
+            <p class="text-muted">
+                {% if form.instance.id %}
+                    You are editing member {{ form.instance.first_name }} {{ form.instance.last_name }}
+                {% else %}
+                    You are creating a new member
+                {% endif %}
+            </p>
+        </div>
+        <div class="col-4 text-end">
+            <a href="{% url 'team:list' %}" class="btn btn-primary mt-3">Return</a>
+        </div>
+    </div>
+    <div class="row">
+        <form method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
+                    <label class="form-label" for="{{ field.id_for_label }}">
+                        {{ field.label }}
+                        {% if field.field.required %}<span class="text-danger">*</span>{% endif %}
+                    </label>
+                    {{ field }}
+                    <div class="form-text text-warning">{{ field.errors }}</div>
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary mt-3">Save</button>
+        </form>
+    </div>
+
+    <script>
+        document.querySelectorAll('form .form-group > input').forEach(ele => ele.classList.add('form-control'))
+        document.querySelectorAll('form .form-group > select').forEach(ele => ele.classList.add('form-select'))
+    </script>
+{% endblock content %}
