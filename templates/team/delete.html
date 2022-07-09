@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row mt-3">
+        <h3>Deleting Member</h3>
+        <form method="post">
+            {% csrf_token %}
+            <p class="text-muted mb-0 mt-2">
+                Are you sure you want to delete member {{ member.first_name }} {{ member.last_name }}?
+            </p>
+            {{ form }}
+            <div class="d-flex justify-content-between flex-row-reverse">
+                <button type="submit" class="btn btn-danger mt-3">Delete</button>
+                <a href="{% url 'team:edit' member.id %}" class="btn btn-secondary mt-3">Cancel</a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

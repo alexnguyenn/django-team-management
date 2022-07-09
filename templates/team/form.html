@@ -13,7 +13,7 @@
             </p>
         </div>
         <div class="col-4 text-end">
-            <a href="{% url 'team:list' %}" class="btn btn-primary mt-3">Return</a>
+            <a href="{% url 'team:list' %}" class="btn btn-secondary mt-3">Return</a>
         </div>
     </div>
     <div class="row">
@@ -29,7 +29,12 @@
                     <div class="form-text text-warning">{{ field.errors }}</div>
                 </div>
             {% endfor %}
-            <button type="submit" class="btn btn-primary mt-3">Save</button>
+            <div class="d-flex justify-content-between flex-row-reverse mt-4">
+                <button type="submit" class="btn btn-primary">Save</button>
+                {% if form.instance.id %}
+                    <a href="{% url 'team:delete' form.instance.id %}" class="btn btn-outline-danger">Delete</a>
+                {% endif %}
+            </div>
         </form>
     </div>
 
